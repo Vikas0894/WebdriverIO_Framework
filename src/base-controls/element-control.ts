@@ -22,7 +22,7 @@ export class ElementControl {
      */
     public async click(clickOptions?: ClickOptions): Promise<void> {
         await this.scrollIntoView();
-        await this.WaitForClickable(timeouts.huge, `Element with selector: ${this.el.selector} is not clickable`);
+        await this.waitForClickable(timeouts.huge, `Element with selector: ${this.el.selector} is not clickable`);
         await this.el.click(clickOptions);
     }
 
@@ -47,42 +47,42 @@ export class ElementControl {
         return this.el.getAttribute(attributeName);
     }
 
-    public async getScrollIntoView(): Promise<void> {
+    public async scrollIntoView(): Promise<void> {
         if (!(await this.isDisplayedInViewport())) {
             await this.el.scrollIntoView();
         }
     }
-     
-    public async scrollIntoViewTop(): Promise<void>{
+
+    public async scrollIntoViewTop(): Promise<void> {
         await this.el.scrollIntoView(true);
     }
 
-     public async isDisplayedInViewport(): Promise<boolean>{
+    public async isDisplayedInViewport(): Promise<boolean> {
         return this.el.isDisplayedInViewport();
-     }
+    }
 
-     public async getLocation(): Promise<Location> {
+    public async getLocation(): Promise<Location> {
         return this.el.getLocation();
-     }
+    }
 
-     public async getCenterLocationRounded(): Promise<Location> {
+    public async getCenterLocationRounded(): Promise<Location> {
         const location = await this.getLocation();
         const size = await this.getSize();
 
-        return{
-            x: Math.round(location.x) + Math.round(size.width/2),
-            y: Math.round(location.y) + Math.round(size.width/2),
+        return {
+            x: Math.round(location.x) + Math.round(size.width / 2),
+            y: Math.round(location.y) + Math.round(size.width / 2),
         };
-     }
+    }
 
-     public async getSize(): Promise<Size> {
+    public async getSize(): Promise<Size> {
         return this.el.getSize();
-     }
-     
-     public async dragAndDropMobile(
+    }
+
+    public async dragAndDropMobile(
         direction: { x: number; y: number },
         duration: number = timeouts.smallest,
-     ): Promise<void> {
+    ): Promise<void> {
         const location = await this.getCenterLocationRounded();
 
         await browser.performActions([
@@ -91,20 +91,20 @@ export class ElementControl {
                 id: 'finger1',
                 parameters: { pointerType: 'mouse' },
                 actions: [
-                    { type: 'pointerMove',duration: 0,x: location.x,y: direction.y },
+                    { type: 'pointerMove', duration: 0, x: location.x, y: direction.y },
                     { type: 'pointerDown', button: 0 },
-                    { type: 'pause', button: 10 },
-                    { type: 'pointerMove',duration: duration, origin: 'pointer', x: location.x, y: direction.y },
+                    { type: 'pause', duration: 10 },
+                    { type: 'pointerMove', duration: duration, origin: 'pointer', x: location.x, y: direction.y },
                     { type: 'pointerUp', button: 0 },
                 ],
             },
         ]);
-     }
+    }
 
-     public async clickRelativeCoordinates(
+    public async clickRelativeCoordinates(
         coordinates: { x: number; y: number },
         duration: number = timeouts.smallest,
-     ): Promise<void> {
+    ): Promise<void> {
         const location = await this.getCenterLocationRounded();
 
         await browser.performActions([
@@ -113,13 +113,119 @@ export class ElementControl {
                 id: 'finger1',
                 parameters: { pointerType: 'mouse' },
                 actions: [
-                     type: 'pointerMove',duration: 0,x: location.x,y: direction.y },
+                    {
+                        type: 'pointerMove',
+                        duration: 0,
+                        x: Math.round(location.x) + coordinates.x,
+                        y: Math.round(location.y) + coordinates.y,
+                    },
                     { type: 'pointerDown', button: 0 },
-                    { type: 'pause', button: 10 },
-                    { type: 'pointerMove',duration: duration, origin: 'pointer', x: location.x, y: direction.y },
+                    { type: 'pause', duration: 10 },
                     { type: 'pointerUp', button: 0 },
                 ],
             },
         ]);
-     }
+    }
+
+    /**
+     * Boolean
+     */
+    public async isDisplayed(): Promise<boolean> {
+        return this.el.isDisplayed();
+    }
+
+    /**
+     * Wait
+     */
+    public async waitForDisplayed(timeout: number, timeoutMsg: string): Promise<void> {
+        await this.el.waitForDisplayed({ timeout: timeout, timeoutMsg: timeoutMsg });
+    }
+
+    public async waitForDisplayedInViewPort(timeout: number, timeoutMsg: string): Promise<void> {
+        //isDisplayedInViewPort does not work for iOs. is Clickable is used instead
+        await this.el.waitUntil(async () => this.el.isClickable(), { timeout, timeoutMsg });
+    }
+
+    public async waitForClickable(timeout: number, timeoutMsg: string): Promise<void> {
+        await browserWaitUntil(async () => this.el.isClickable(), timeout, timeoutMsg);
+    }
+
+    public async waitForNotDisplayed(timeout: number, timeoutMsg: string): Promise<void> {
+        await this.el.waitForDisplayed({ timeout: timeout, timeoutMsg: timeoutMsg, reverse: true });
+    }
+
+    public async waitToHaveAnyText(timeout: number, timeoutMsg: string): Promise<void> {
+        await browserWaitUntil(async () => (await this.getText()) !== '', timeout, timeoutMsg);
+    }
+
+    public async waitToHaveText(text: string, timeout: number, timeoutMsg: string, trim: boolean = true): Promise<void> {
+        try {
+            await browserWaitUntil(
+                async (): Promise<boolean> => {
+                    let currentText = await this.getText();
+
+                    if (trim) {
+                        currentText = currentText.trim();
+                    }
+
+                    return currentText === text;
+                },
+                timeout,
+                timeoutMsg,
+            );
+        } catch (e) {
+            throw new Error(`${e.message}. Expected text: ${text}. Actual text: ${await this.getText()}`);
+        }
+    }
+
+    /**
+     * Assert
+     */
+
+    public async expectToBeDisplayed(errorMsg: string): Promise<void> {
+        await expect(this.el).toBeDisplayed({ message: errorMsg });
+    }
+
+    public async expectNotToBeDisplayed(errorMsg: string): Promise<void> {
+        await expect(this.el).not.toBeDisplayed({ message: errorMsg });
+    }
+
+    public async expectNotToBeExist(errorMsg: string): Promise<void> {
+        await expect(this.el).not.toExist({ message: errorMsg });
+    }
+
+    public async expectToHaveText(text: string, options?: ExpectWebdriverIO.StringOptions): Promise<void> {
+        await expect(this.el).toHaveText(text, options);
+    }
+
+    public async expectToHaveAttribute(
+        attribute: string,
+        value?: string,
+        options?: ExpectWebdriverIO.StringOptions,
+    ): Promise<void> {
+        await expect(this.el).toHaveAttribute(attribute, value, options);
+    }
+
+    public async expectToHaveClassContaining(
+        className: string,
+        options?: ExpectWebdriverIO.StringOptions,
+    ): Promise<void> {
+        await expect(this.el).toHaveElementClassContaining(className, options);
+    }
+
+    public async expectedToHaveClassNotContaining(className: string): Promise<void> {
+        assertEqual((await this.getAttribute('class')).indexOf(className), -1, `Class contains ${className}`);
+    }
+
+    public async expectToBeEnabled(errorMsg: string): Promise<void> {
+        await expect(this.el).toBeEnabled({ message: errorMsg });
+    }
+
+    public async expectToDisabled(errorMsg: string): Promise<void> {
+        await expect(this.el).toBeDisabled({ message: errorMsg });
+    }
+
+    public async expectToHaveChildren(numberOptions: ExpectWebdriverIO.NumberOptions): Promise<void> {
+        await expect(this.el).toHaveChildren(numberOptions);
+    }
 }
