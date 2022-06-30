@@ -2,8 +2,8 @@ import { ClickOptions } from 'webdriverio';
 import { timeouts } from '../configs/timeouts-config';
 import { Location } from 'webdriverio/build/commands/element/getLocation';
 import { Size } from 'webdriverio/build/commands/element/getSize';
-import { browserWaitUntil } from '../pages/support/browser/browser-wait-until';
-import { assertEqual } from '../pages/support/assert/assert-equal';
+import { browserWaitUntil } from '../support/browser/browser-wait-until';
+import { assertEqual } from '../support/assert/assert-equal';
 
 
 export class ElementControl {

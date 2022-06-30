@@ -1,4 +1,4 @@
-import { getAccountNickname } from "../../pages/support/get-account-nickname";
+import { getAccountNickname } from "../../support/get-account-nickname";
 import { IUSERS } from "../data/interfaces/users-data-interface";
 
 export const QA_USERS: IUSERS = {

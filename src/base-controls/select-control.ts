@@ -1,5 +1,5 @@
 import { timeouts } from "../configs/timeouts-config";
-import { browserPause } from "../pages/support/browser/browser-pause";
+import { browserPause } from "../support/browser/browser-pause";
 import { ElementControl } from "./element-control";
 
 export class SelectControl extends ElementControl{

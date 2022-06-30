@@ -1,7 +1,7 @@
 import { version } from "chai";
-import { removeDir } from "../../pages/support/files/remove-dir";
-import CustomReporter from "../../pages/support/reports/custom-reporter/custom-reporter";
-import { customReporterMergeResults } from "../../pages/support/reports/custom-reporter/custom-reporter-merge-results";
+import { removeDir } from "../../support/files/remove-dir";
+import CustomReporter from "../../support/reports/custom-reporter/custom-reporter";
+import { customReporterMergeResults } from "../../support/reports/custom-reporter/custom-reporter-merge-results";
 import { CUCUMBER_JSON_REPORTER_CONFIG } from "../cucumber-json-reporter-config";
 import { CUSTOM_REPORTER_CONFIG } from "../custom-reporter-config";
 
@@ -26,7 +26,7 @@ const config = {
         retry: 1,
         requireModule: ['@babel/register'], //module used for processing required features
         failAmbiguousDefinitions: true,
-        require: [./dist/steps/**/*.js],
+        require: ['./dist/steps/**/*.js'],
         strict: true, //Fail if there are any undefined or pending steps
         timeout: 60000,//Timeout for step definition
     },

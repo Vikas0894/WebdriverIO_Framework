@@ -1,7 +1,7 @@
 import { ClickOptions } from "webdriverio";
 import { timeouts } from "../configs/timeouts-config";
-import { assertTrue } from "../pages/support/assert/assert-true";
-import { browserWaitUntil } from "../pages/support/browser/browser-wait-until";
+import { assertTrue } from "../support/assert/assert-true";
+import { browserWaitUntil } from "../support/browser/browser-wait-until";
 import { ElementControl } from "./element-control";
 
 export class ButtonControl extends ElementControl {

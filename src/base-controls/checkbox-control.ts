@@ -1,4 +1,4 @@
-import { assertTrue } from "../pages/support/assert/assert-true";
+import { assertTrue } from "../support/assert/assert-true";
 import { ElementControl } from "./element-control";
 
 export class CheckboxControl extends ElementControl {

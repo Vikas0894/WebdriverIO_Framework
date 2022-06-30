@@ -1,4 +1,4 @@
-import { getEnvVariable } from "../pages/support/test-run/get-env-variable";
+import { getEnvVariable } from "../support/test-run/get-env-variable";
 
 const environments: any = {
     dev: {

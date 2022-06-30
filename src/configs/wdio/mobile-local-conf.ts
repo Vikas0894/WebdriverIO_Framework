@@ -1,4 +1,4 @@
-import { getMobileCaps } from '../../pages/support/test-run/get-mobile-caps';
+import { getMobileCaps } from '../../support/test-run/get-mobile-caps';
 import  config  from './base-conf';
 import { APPIUM_LOCAL_CONFIG } from "./services/services-config";
 

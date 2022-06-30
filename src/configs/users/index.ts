@@ -1,7 +1,7 @@
-import { getAccountNickname } from "../../pages/support/get-account-nickname";
-import { getDateOfBirth } from "../../pages/support/get-date-of-birth";
-import { getEmail } from "../../pages/support/get-email";
-import { getRandomString } from "../../pages/support/get-random-string";
+import { getAccountNickname } from "../../support/get-account-nickname";
+import { getDateOfBirth } from "../../support/get-date-of-birth";
+import { getEmail } from "../../support/get-email";
+import { getRandomString } from "../../support/get-random-string";
 import { IUSER, IUSERS, IUSERS_DATA } from "../data/interfaces/users-data-interface"
 import { getCurrentEnv } from "../enviroments-config";
 import { DEV_USERS } from "./dev-users";

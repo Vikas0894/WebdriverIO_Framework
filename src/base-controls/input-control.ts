@@ -1,4 +1,4 @@
-import { browserKeys } from "../pages/support/browser/browser-keys";
+import { browserKeys } from "../support/browser/browser-keys";
 import { ElementControl } from "./element-control";
 
 export class InputControl extends ElementControl {
