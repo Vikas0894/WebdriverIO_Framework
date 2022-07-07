@@ -1,0 +1,1 @@
+{"version":3,"file":"web-sauce-conf.js","sourceRoot":"","sources":["../../../src/configs/wdio/web-sauce-conf.ts"],"names":[],"mappings":";;;;;AAAA,8DAAqD;AACrD,4DAAiC;AACjC,sCAAuC;AACvC,gEAAgF;AAEhF,OAAO,CAAC,MAAM,GAAG;IACb,GAAG,mBAAM;IACT,GAAG,8BAAY;IACf,OAAO,EAAE,IAAA,iCAAY,GAAE,CAAC,MAAM;IAC9B,YAAY,EAAE,eAAQ,CAAC,KAAK;IAC5B,QAAQ,EAAE,CAAC,sCAAoB,CAAC;CACnC,CAAC"}

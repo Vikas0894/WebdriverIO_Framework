@@ -3,7 +3,7 @@ import { getEnvVariable } from "../support/test-run/get-env-variable";
 const environments: any = {
     dev: {
 
-        client: 'https://www.tab.alt.meanion.com',
+        client: 'https://demo.actitime.com/login.do/',
         cardManagementService: 'https://api.tab.alt.meanion.com',
         cardApplicationService: 'https://a:i.tab.alt.meanion.com',
         customerService: 'https://api.tab.alt.meanion.com',
@@ -66,11 +66,11 @@ export const getCurrentEnv = (): string => {
     if (possibleEnvs.indexOf(env.toLowerCase()) !== -1) {
         return env;
     } else {
-        throw new Error(`ENV = ${ env } environment variable is not allowed.Possible values: ${ possibleEnvs.join(' | ') } `);
+        throw new Error(`ENV = ${env} environment variable is not allowed.Possible values: ${possibleEnvs.join(' | ')} `);
     }
 };
 
-export const getEnvConfig = (): any => { 
-     return environments[getCurrentEnv()];
+export const getEnvConfig = (): any => {
+    return environments[getCurrentEnv()];
 };
 

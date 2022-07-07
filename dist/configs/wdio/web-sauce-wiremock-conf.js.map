@@ -1,0 +1,1 @@
+{"version":3,"file":"web-sauce-wiremock-conf.js","sourceRoot":"","sources":["../../../src/configs/wdio/web-sauce-wiremock-conf.ts"],"names":[],"mappings":";;;;;AAAA,4DAAiC;AACjC,sCAAuC;AACvC,gEAAyG;AAEzG,OAAO,CAAC,MAAM,GAAG;IACb,GAAG,mBAAM;IACT,GAAG,8BAAY;IACf,OAAO,EAAE,uBAAuB;IAChC,YAAY,EAAE,eAAQ,CAAC,KAAK;IAC5B,QAAQ,EAAE,CAAC,sCAAoB,EAAE,yCAAuB,CAAC;CAC5D,CAAC"}

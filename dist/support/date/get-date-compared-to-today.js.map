@@ -1,0 +1,1 @@
+{"version":3,"file":"get-date-compared-to-today.js","sourceRoot":"","sources":["../../../src/support/date/get-date-compared-to-today.ts"],"names":[],"mappings":";;;AAAO,MAAM,sBAAsB,GAAG,CAAC,UAAkB,EAAQ,EAAE;IAC/D,MAAM,IAAI,GAAG,IAAI,IAAI,EAAE,CAAC;IAExB,IAAI,CAAC,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,GAAG,UAAU,CAAC,CAAC;IAE1C,OAAO,IAAI,CAAC;AAChB,CAAC,CAAC;AANW,QAAA,sBAAsB,0BAMjC"}

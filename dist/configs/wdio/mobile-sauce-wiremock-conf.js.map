@@ -1,0 +1,1 @@
+{"version":3,"file":"mobile-sauce-wiremock-conf.js","sourceRoot":"","sources":["../../../src/configs/wdio/mobile-sauce-wiremock-conf.ts"],"names":[],"mappings":";;;;;AAAA,4EAAuE;AACvE,4DAAiC;AACjC,gEAAyG;AAEzG,OAAO,CAAC,MAAM,GAAG;IACb,GAAG,mBAAM;IACT,GAAG,8BAAY;IACf,YAAY,EAAE,IAAA,+BAAa,GAAE;IAC7B,QAAQ,EAAE,CAAC,sCAAoB,EAAE,yCAAuB,CAAC;CAC5D,CAAC"}

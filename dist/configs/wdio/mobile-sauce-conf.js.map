@@ -1,0 +1,1 @@
+{"version":3,"file":"mobile-sauce-conf.js","sourceRoot":"","sources":["../../../src/configs/wdio/mobile-sauce-conf.ts"],"names":[],"mappings":";;AAAA,+BAA8B;AAC9B,4EAAuE;AACvE,gEAAgF;AAEhF,OAAO,CAAC,MAAM,GAAG;IACb,GAAG,aAAM;IACT,GAAG,8BAAY;IACf,YAAY,EAAE,IAAA,+BAAa,GAAE;IAC7B,QAAQ,EAAE,CAAC,sCAAoB,CAAC;CACnC,CAAC"}

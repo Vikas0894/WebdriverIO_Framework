@@ -18,7 +18,8 @@ export class SelectControl extends ElementControl{
         const message = `'${value}' item is not in the List`;
         try{
             await itemEl.waitForDisplayed(timeouts.small,message);
-        }catch(e){
+        }catch(e: any){
+            console.log("Error", e);
             if(e.message.indexOf(message)> -1){
                 await this.selectItem(value);
             }else{

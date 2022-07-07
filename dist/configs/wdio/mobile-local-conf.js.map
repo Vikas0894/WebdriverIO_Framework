@@ -1,0 +1,1 @@
+{"version":3,"file":"mobile-local-conf.js","sourceRoot":"","sources":["../../../src/configs/wdio/mobile-local-conf.ts"],"names":[],"mappings":";;;;;AAAA,4EAAuE;AACvE,4DAAmC;AACnC,gEAAiE;AAEjE,OAAO,CAAC,MAAM,GAAG;IACb,GAAG,mBAAM;IACT,GAAG,qCAAmB;IACtB,YAAY,EAAE,IAAA,+BAAa,GAAE;IAC7B,QAAQ,EAAE,CAAC,qCAAmB,CAAC;CAClC,CAAC"}

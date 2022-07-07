@@ -1,0 +1,54 @@
+{
+  "version": "0.2.0",
+  "configuration": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Test",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "arg": [
+        "-r",
+        "ts-node/register",
+        "--timeout",
+        "999999",
+        "--colors",
+        "${workspaceFolder}/src/api-e2e-tests/**.ts"
+        //"-g",
+        //"Statements" // put text in the describe block of the test case here to debug on specific test
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOption": "neverOpen",
+      "protocol": "inspector",
+      "env": {
+        "NODE_OPTIONS":"--insecure-http-parser"
+      }
+    },
+    {
+        "type":"node",
+        "reqest":"launch",
+        "protocol":"legacy",
+        "port":"5859",
+        "name":"Debug-UI-Test",
+        "runtimeExecutable":"/usr/local/bin/node",
+        "cwd": "${workspaceRoot}",
+        "env":{
+            "ENV":"qa"
+        },
+        "console":"integratedTerminal",
+        //This args config runs only the file that open and displayed
+        //( e.g , a file in test/spec/):
+        "args": ["node_modules/.bin/wdio","src/configs/wdio/web-local-conf.ts","--env=dev",
+        //To debug the file in your VS Code current tab:
+        //"--spec","{relativeFile}"
+        //To run a specific file, you can also do:
+        "--spec=./tests/account-setup/account-verification/age-validation.feature",
+        //DO NOT USE COMMAND BELOW. It's just there for reference
+        //becouse it's used by the pakage.json script to test all files
+        //but it should not be used in 'debug' mode unless you want tons of
+        //chrome debug windows to open at the same time
+        "--cucumberOpts.tags","\"~@vikas\""
+        ]
+    }
+  ]
+}
+

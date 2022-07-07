@@ -1,0 +1,1 @@
+{"version":3,"file":"web-local-conf.js","sourceRoot":"","sources":["../../../src/configs/wdio/web-local-conf.ts"],"names":[],"mappings":";;;;;AAAA,8DAAqD;AACrD,4DAAiC;AACjC,sCAAuC;AACvC,gEAAyE;AAEzE,OAAO,CAAC,MAAM,GAAG;IACb,GAAG,mBAAM;IACT,OAAO,EAAE,IAAA,iCAAY,GAAE,CAAC,MAAM;IAC9B,MAAM,EAAE,OAAO;IACf,YAAY,EAAE,eAAQ,CAAC,KAAK;IAC5B,QAAQ,EAAE,CAAC,6CAA2B,CAAC;CAC1C,CAAC"}

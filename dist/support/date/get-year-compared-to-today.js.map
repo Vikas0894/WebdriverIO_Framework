@@ -1,0 +1,1 @@
+{"version":3,"file":"get-year-compared-to-today.js","sourceRoot":"","sources":["../../../src/support/date/get-year-compared-to-today.ts"],"names":[],"mappings":";;;AAAO,MAAM,sBAAsB,GAAG,CAAC,UAAkB,EAAQ,EAAE;IAC/D,MAAM,IAAI,GAAG,IAAI,IAAI,EAAE,CAAC;IAExB,IAAI,CAAC,WAAW,CAAC,IAAI,CAAC,WAAW,EAAE,GAAG,UAAU,CAAC,CAAC;IAElD,OAAO,IAAI,CAAC;AAChB,CAAC,CAAC;AANW,QAAA,sBAAsB,0BAMjC"}

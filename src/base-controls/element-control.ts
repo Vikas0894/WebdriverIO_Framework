@@ -173,7 +173,7 @@ export class ElementControl {
                 timeout,
                 timeoutMsg,
             );
-        } catch (e) {
+        } catch (e: any) {
             throw new Error(`${e.message}. Expected text: ${text}. Actual text: ${await this.getText()}`);
         }
     }
