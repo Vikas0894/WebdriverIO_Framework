@@ -2,27 +2,27 @@ import { timeouts } from "../configs/timeouts-config";
 import { browserPause } from "../support/browser/browser-pause";
 import { ElementControl } from "./element-control";
 
-export class SelectControl extends ElementControl{
+export class SelectControl extends ElementControl {
     protected async getWrapper(): Promise<WebdriverIO.Element> {
         return $("//div[contains(@class,'popover-content')]");
     }
 
-    protected async getItemInTheListEl(value: string): Promise<ElementControl>{
+    protected async getItemInTheListEl(value: string): Promise<ElementControl> {
         return new ElementControl(await $(`//ion-item[.//ion-label[normalize-space(.)='${value}']]//ion-radio`));
     }
 
-    public async selectItem(value: string): Promise<void>{
+    public async selectItem(value: string): Promise<void> {
         await this.openList();
         const itemEl = await this.getItemInTheListEl(value);
 
         const message = `'${value}' item is not in the List`;
-        try{
-            await itemEl.waitForDisplayed(timeouts.small,message);
-        }catch(e: any){
+        try {
+            await itemEl.waitForDisplayed(timeouts.small, message);
+        } catch (e: any) {
             console.log("Error", e);
-            if(e.message.indexOf(message)> -1){
+            if (e.message.indexOf(message) > -1) {
                 await this.selectItem(value);
-            }else{
+            } else {
                 throw new Error(e.message);
             }
         }
